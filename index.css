@@ -1,0 +1,82 @@
+/* ===== 사이트 헤더 ===== */
+.site-header {
+  position: sticky;
+  top: 0;
+  z-index: var(--z-header);
+  height: var(--header-height);
+  display: flex;
+  align-items: center;
+  border-bottom: 1px solid var(--color-border);
+  border-radius: 0;
+}
+.site-header__inner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.site-header__logo {
+  font-weight: 800;
+  font-size: var(--fs-lg);
+  color: var(--color-espresso);
+}
+.site-nav {
+  display: flex;
+  align-items: center;
+  gap: var(--space-lg);
+  font-size: var(--fs-sm);
+  font-weight: 600;
+  color: var(--color-text-muted);
+}
+.site-nav a:hover,
+.site-nav a.is-active { color: var(--color-coffee); }
+.site-nav__cart { position: relative; display: inline-flex; align-items: center; gap: var(--space-xs); }
+.site-nav__cart .badge {
+  position: absolute;
+  top: -0.6rem;
+  right: -0.9rem;
+  background: var(--color-danger);
+  color: #fff;
+}
+
+/* ===== 히어로 ===== */
+.hero { padding-block: var(--space-2xl); text-align: center; }
+.hero__inner { display: flex; flex-direction: column; align-items: center; gap: var(--space-md); }
+.hero h1 { font-size: var(--fs-3xl); }
+
+/* ===== 섹션 공통 ===== */
+.section { padding-block: var(--space-xl); }
+.section__head {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: var(--space-md);
+}
+.section__title { font-size: var(--fs-xl); margin-bottom: var(--space-md); }
+
+/* ===== 카테고리 그리드 ===== */
+.category-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(110px, 1fr));
+  gap: var(--space-md);
+}
+.category-card {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: var(--space-xs);
+  padding: var(--space-lg) var(--space-sm);
+  text-align: center;
+  font-weight: 600;
+}
+.category-card__emoji { font-size: var(--fs-2xl); }
+
+/* ===== 인기 메뉴 그리드 (menus/list 와 동일한 톤) ===== */
+.menu-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+  gap: var(--space-md);
+}
+.menu-card { padding: var(--space-md); cursor: pointer; }
+.menu-card.soldout { opacity: 0.5; pointer-events: none; }
+.menu-card h3 { margin-bottom: var(--space-xs); font-size: var(--fs-md); }
+.menu-card .price { color: var(--color-coffee); font-weight: 600; }

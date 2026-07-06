@@ -1,8 +1,10 @@
+const { formatPrice, escapeHtml, addToCart, showToast, getParam } = window.CafeUtils;
+const Data = window.CafeData;
+
 let quantity = 1;
 
 function renderMenuDetail() {
-  const params = new URLSearchParams(location.search);
-  const menu = getMenuById(params.get("id"));
+  const menu = Data.getMenuById(getParam("id"));
   const el = document.getElementById("menu-detail");
 
   if (!menu) {
@@ -11,9 +13,9 @@ function renderMenuDetail() {
   }
 
   el.innerHTML = `
-    <h2>${menu.name}</h2>
+    <h2>${escapeHtml(menu.name)}</h2>
     <p class="price">${formatPrice(menu.price)}</p>
-    <p>${menu.description}</p>
+    <p>${escapeHtml(menu.description)}</p>
     <div class="quantity">
       <button type="button" id="qty-minus">-</button>
       <span id="qty-value">${quantity}</span>
@@ -34,7 +36,7 @@ function renderMenuDetail() {
   });
   document.getElementById("add-btn").addEventListener("click", () => {
     addToCart(menu.id, quantity);
-    alert("장바구니에 담았습니다.");
+    showToast("장바구니에 담았습니다.", "success");
   });
 }
 
