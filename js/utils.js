@@ -2,8 +2,13 @@
    ☕ 카페 앱 - 공통 유틸리티
    포맷 · 장바구니 · 주문 · 토스트 · DOM 헬퍼
    data.js 의 CafeData / STORAGE_KEYS 에 의존한다.
+
+   ⚠️ 모든 내부 선언은 IIFE 로 감싸 전역 스코프 오염을 막는다.
+   (같은 페이지의 다른 <script> 가 window.CafeUtils 를 구조분해하며
+    같은 이름을 다시 const 로 선언 → "Identifier already declared" 방지)
    ============================================ */
 
+(function () {
 const KEYS = window.CafeData.STORAGE_KEYS;
 
 /* ============================================
@@ -12,24 +17,22 @@ const KEYS = window.CafeData.STORAGE_KEYS;
 
 /** 3,000원 형태의 통화 문자열 */
 function formatPrice(value) {
-  return (Number(value) || 0).toLocaleString("ko-KR") + "원";
+  return (Number(value) || 0).toLocaleString('ko-KR') + '원';
 }
 
 /** 2026. 07. 06 형태의 날짜 */
 function formatDate(input) {
   const d = input instanceof Date ? input : new Date(input);
-  if (isNaN(d)) return "";
-  return `${d.getFullYear()}. ${String(d.getMonth() + 1).padStart(2, "0")}. ${String(
-    d.getDate()
-  ).padStart(2, "0")}`;
+  if (isNaN(d)) return '';
+  return `${d.getFullYear()}. ${String(d.getMonth() + 1).padStart(2, '0')}. ${String(d.getDate()).padStart(2, '0')}`;
 }
 
 /** 2026. 07. 06 14:30 형태의 날짜+시간 */
 function formatDateTime(input) {
   const d = input instanceof Date ? input : new Date(input);
-  if (isNaN(d)) return "";
-  const hh = String(d.getHours()).padStart(2, "0");
-  const mm = String(d.getMinutes()).padStart(2, "0");
+  if (isNaN(d)) return '';
+  const hh = String(d.getHours()).padStart(2, '0');
+  const mm = String(d.getMinutes()).padStart(2, '0');
   return `${formatDate(d)} ${hh}:${mm}`;
 }
 
@@ -42,13 +45,17 @@ const $$ = (sel, root = document) => [...root.querySelectorAll(sel)];
 
 /** 위험 문자 이스케이프 (사용자 입력 렌더 시) */
 function escapeHtml(str) {
-  return String(str ?? "").replace(/[&<>"']/g, (c) => ({
-    "&": "&amp;",
-    "<": "&lt;",
-    ">": "&gt;",
-    '"': "&quot;",
-    "'": "&#39;",
-  }[c]));
+  return String(str ?? '').replace(
+    /[&<>"']/g,
+    (c) =>
+      ({
+        '&': '&amp;',
+        '<': '&lt;',
+        '>': '&gt;',
+        '"': '&quot;',
+        "'": '&#39;',
+      })[c],
+  );
 }
 
 /** URL 쿼리 파라미터 값 */
@@ -60,21 +67,21 @@ function getParam(name) {
    토스트
    ============================================ */
 
-function showToast(message, type = "default", duration = 2200) {
-  let container = $(".toast-container");
+function showToast(message, type = 'default', duration = 2200) {
+  let container = $('.toast-container');
   if (!container) {
-    container = document.createElement("div");
-    container.className = "toast-container";
+    container = document.createElement('div');
+    container.className = 'toast-container';
     document.body.appendChild(container);
   }
-  const toast = document.createElement("div");
-  toast.className = "toast" + (type !== "default" ? ` toast--${type}` : "");
+  const toast = document.createElement('div');
+  toast.className = 'toast' + (type !== 'default' ? ` toast--${type}` : '');
   toast.textContent = message;
   container.appendChild(toast);
   setTimeout(() => {
-    toast.style.transition = "opacity .3s, transform .3s";
-    toast.style.opacity = "0";
-    toast.style.transform = "translateY(8px)";
+    toast.style.transition = 'opacity .3s, transform .3s';
+    toast.style.opacity = '0';
+    toast.style.transform = 'translateY(8px)';
     setTimeout(() => toast.remove(), 300);
   }, duration);
 }
@@ -146,7 +153,7 @@ function getCartDetail() {
 /** [data-cart-badge] 요소에 현재 수량을 반영 */
 function updateCartBadges() {
   const count = getCartCount();
-  $$("[data-cart-badge]").forEach((el) => {
+  $$('[data-cart-badge]').forEach((el) => {
     el.textContent = count;
     el.hidden = count === 0;
   });
@@ -160,10 +167,10 @@ function updateCartBadges() {
    ============================================ */
 
 const ORDER_STATUS = {
-  pending: { label: "접수 대기", color: "warning" },
-  making: { label: "제조 중", color: "info" },
-  done: { label: "완료", color: "success" },
-  canceled: { label: "취소됨", color: "danger" },
+  pending: { label: '접수 대기', color: 'warning' },
+  making: { label: '제조 중', color: 'info' },
+  done: { label: '완료', color: 'success' },
+  canceled: { label: '취소됨', color: 'danger' },
 };
 
 function getOrders() {
@@ -183,7 +190,7 @@ function checkout() {
   const { items, total } = getCartDetail();
   if (items.length === 0) return null;
   const order = {
-    id: "o-" + Date.now().toString(36),
+    id: 'o-' + Date.now().toString(36),
     items: items.map((i) => ({
       menuId: i.menuId,
       name: i.menu.name,
@@ -191,7 +198,7 @@ function checkout() {
       qty: i.qty,
     })),
     total,
-    status: "pending",
+    status: 'pending',
     createdAt: new Date().toISOString(),
   };
   const orders = getOrders();
@@ -216,7 +223,7 @@ function updateOrderStatus(id, status) {
    ============================================ */
 
 function getUser() {
-  return JSON.parse(localStorage.getItem(KEYS.USER)) || { name: "손님", point: 0, stamp: 0 };
+  return JSON.parse(localStorage.getItem(KEYS.USER)) || { name: '손님', point: 0, stamp: 0 };
 }
 
 /* ============================================
@@ -271,4 +278,5 @@ window.CafeUtils = {
 };
 
 // 페이지 로드 시 배지 동기화
-document.addEventListener("DOMContentLoaded", updateCartBadges);
+document.addEventListener('DOMContentLoaded', updateCartBadges);
+})();

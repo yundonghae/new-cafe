@@ -2,8 +2,12 @@
    ☕ 카페 앱 - 메뉴 / 카테고리 데이터
    localStorage 를 단일 데이터 소스로 사용.
    최초 실행 시 아래 시드 데이터로 초기화된다.
+
+   ⚠️ 내부 선언은 IIFE 로 감싸 전역 스코프 오염을 막는다.
+   (window.CafeData 만 외부로 노출)
    ============================================ */
 
+(function () {
 const CATEGORIES = [
   { id: "coffee", name: "커피", emoji: "☕" },
   { id: "latte", name: "라떼", emoji: "🥛" },
@@ -221,3 +225,4 @@ window.CafeData = {
   deleteMenu,
   saveMenus,
 };
+})();
