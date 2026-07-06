@@ -102,9 +102,9 @@ cafe-app/
 
 ### 1단계: 공유 자원
 
-- [ ] `css/variables.css` — 전역 CSS 변수, 리셋
-- [ ] `js/data.js` — 메뉴/카테고리 데이터
-- [ ] `js/utils.js` — 공통 유틸리티 (카트, 포맷 등)
+- [x] `css/variables.css` — 전역 CSS 변수, 리셋
+- [x] `js/data.js` — 메뉴/카테고리 데이터
+- [x] `js/utils.js` — 공통 유틸리티 (카트, 포맷 등)
 
 ### 2단계: 관리자 - 메뉴 관리 시스템
 
@@ -123,12 +123,12 @@ cafe-app/
 
 ### 3단계: 고객 - 메뉴 조회 시스템
 
-- [ ] `menus/list.html` — 메뉴 목록
-- [ ] `menus/list.css`
-- [ ] `menus/list.js`
-- [ ] `menus/detail.html` — 메뉴 상세
-- [ ] `menus/detail.css`
-- [ ] `menus/detail.js`
+- [x] `menus/list.html` — 메뉴 목록
+- [x] `menus/list.css`
+- [x] `menus/list.js`
+- [x] `menus/detail.html` — 메뉴 상세
+- [x] `menus/detail.css`
+- [x] `menus/detail.js`
 
 ### 4단계: 고객 - 장바구니 관리 시스템
 
