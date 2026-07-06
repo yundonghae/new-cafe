@@ -1,0 +1,60 @@
+.order-detail-header {
+  display: flex;
+  align-items: center;
+  gap: var(--space-md);
+  padding: var(--space-md) var(--space-lg);
+  border-bottom: 1px solid var(--color-border);
+  position: sticky;
+  top: 0;
+  background: var(--color-bg);
+  z-index: var(--z-header);
+}
+.order-detail-header h1 { font-size: var(--fs-lg); }
+
+.order-detail-main {
+  max-width: 560px;
+  margin: var(--space-lg) auto var(--space-2xl);
+  padding: 0 var(--space-lg);
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-md);
+}
+
+/* ===== 주문 요약 ===== */
+.order-summary { padding: var(--space-lg); display: flex; flex-direction: column; gap: var(--space-sm); }
+.order-summary__row {
+  display: flex;
+  justify-content: space-between;
+  color: var(--color-text-muted);
+}
+.order-summary__row:last-child { color: var(--color-text); font-weight: 600; }
+
+.badge--warning { background: var(--color-warning); color: #fff; }
+.badge--info { background: var(--color-info); color: #fff; }
+.badge--success { background: var(--color-success); color: #fff; }
+.badge--danger { background: var(--color-danger); color: #fff; }
+
+/* ===== 메뉴 라인 ===== */
+.order-line-list { display: flex; flex-direction: column; gap: var(--space-sm); }
+.order-line {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: var(--space-md);
+}
+.order-line__info { display: flex; flex-direction: column; gap: var(--space-xs); }
+.order-line__name { font-weight: 700; }
+.order-line__unit { font-size: var(--fs-sm); color: var(--color-text-muted); }
+.order-line__amount { font-weight: 700; color: var(--color-coffee); }
+
+/* ===== 총 금액 ===== */
+.order-total {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: var(--space-lg);
+  font-size: var(--fs-lg);
+  font-weight: 800;
+}
+.order-total:hover { transform: none; box-shadow: var(--shadow-sm); }
+.order-total .amount { color: var(--color-coffee); }
