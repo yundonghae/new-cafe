@@ -1,0 +1,83 @@
+.menu-header {
+  padding: var(--space-lg) var(--space-xl);
+  border-bottom: 1px solid var(--color-border);
+}
+.menu-header .btn {
+  border: 1.5px solid var(--color-border);
+  color: var(--color-text);
+  background: var(--color-surface);
+}
+.menu-header .btn:hover { border-color: var(--color-accent); color: var(--color-accent); }
+
+.detail-page {
+  max-width: 520px;
+  margin: var(--space-xl) auto var(--space-2xl);
+  padding: 0 var(--space-lg);
+}
+
+.detail-card { padding: 0; overflow: hidden; }
+.detail-card:hover { transform: none; box-shadow: var(--shadow-sm); }
+
+.detail-media {
+  position: relative;
+  aspect-ratio: 4 / 3;
+  background: var(--color-cream);
+  overflow: hidden;
+}
+.detail-media img { width: 100%; height: 100%; object-fit: cover; }
+.detail-soldout {
+  position: absolute; inset: 0;
+  display: grid; place-items: center;
+  background: rgba(59, 43, 35, 0.55);
+  color: #fff; font-size: var(--fs-xl); font-weight: 700;
+  -webkit-backdrop-filter: blur(2px);
+  backdrop-filter: blur(2px);
+}
+
+.detail-info { padding: var(--space-lg); }
+.detail-info h2 { font-size: var(--fs-2xl); }
+.detail-card .price {
+  color: var(--color-coffee);
+  font-size: var(--fs-xl);
+  font-weight: 700;
+  margin: var(--space-xs) 0 var(--space-md);
+}
+.detail-info .desc {
+  color: var(--color-text);
+  line-height: 1.7;
+  margin-bottom: var(--space-md);
+}
+.detail-tags {
+  display: flex; gap: var(--space-sm); flex-wrap: wrap;
+  margin-bottom: var(--space-lg);
+}
+
+.detail-card .quantity {
+  display: flex;
+  align-items: center;
+  gap: var(--space-md);
+  margin: var(--space-md) 0 var(--space-lg);
+}
+.detail-card .quantity button {
+  width: 40px;
+  height: 40px;
+  border: 1.5px solid var(--color-border);
+  border-radius: var(--radius-full);
+  background: var(--color-surface);
+  font-size: var(--fs-lg);
+  font-weight: 700;
+  color: var(--color-coffee);
+  transition: all var(--transition);
+}
+.detail-card .quantity button:hover { border-color: var(--color-accent); color: var(--color-accent); }
+.detail-card .quantity #qty-value {
+  min-width: 32px;
+  text-align: center;
+  font-weight: 700;
+  font-size: var(--fs-lg);
+}
+
+.add-to-cart-btn:disabled {
+  background: var(--color-text-muted);
+  color: #fff;
+}
