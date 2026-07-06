@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>메뉴 추가 · 관리자</title>
+  <link rel="stylesheet" href="../../css/variables.css" />
+  <link rel="stylesheet" href="create.css" />
+</head>
+<body>
+  <header class="admin-header glass">
+    <div class="container admin-header__inner">
+      <div class="admin-header__brand">
+        <a href="../index.html" class="admin-header__logo">☕ 관리자</a>
+        <nav class="admin-nav">
+          <a href="../index.html">대시보드</a>
+          <a href="list.html" class="is-active">메뉴</a>
+          <a href="../orders/list.html">주문</a>
+        </nav>
+      </div>
+      <a href="../../index.html" class="btn btn--ghost btn--sm">고객 화면 →</a>
+    </div>
+  </header>
+
+  <main class="container admin-main">
+    <a href="list.html" class="back-link">← 메뉴 목록</a>
+    <h1 class="page-head__title">메뉴 추가</h1>
+
+    <form class="menu-form card" id="menuForm" novalidate>
+      <div class="menu-form__grid">
+        <div class="menu-form__fields">
+          <div class="field">
+            <label for="name">메뉴 이름 *</label>
+            <input class="input" id="name" name="name" required placeholder="예: 아메리카노" />
+          </div>
+
+          <div class="field-row">
+            <div class="field">
+              <label for="categoryId">카테고리 *</label>
+              <select class="select" id="categoryId" name="categoryId" required></select>
+            </div>
+            <div class="field">
+              <label for="price">가격 (원) *</label>
+              <input class="input" id="price" name="price" type="number" min="0" step="100" required placeholder="4000" />
+            </div>
+          </div>
+
+          <div class="field">
+            <label for="description">설명</label>
+            <textarea class="textarea" id="description" name="description" placeholder="메뉴 설명을 입력하세요"></textarea>
+          </div>
+
+          <div class="field">
+            <label for="image">이미지 URL</label>
+            <input class="input" id="image" name="image" type="url" placeholder="https://…" />
+          </div>
+
+          <div class="field">
+            <label for="tags">태그 (쉼표로 구분)</label>
+            <input class="input" id="tags" name="tags" placeholder="베스트, HOT/ICE" />
+          </div>
+
+          <label class="checkbox">
+            <input type="checkbox" id="soldOut" name="soldOut" />
+            <span>품절 상태로 등록</span>
+          </label>
+        </div>
+
+        <aside class="menu-form__preview">
+          <span class="menu-form__preview-label">미리보기</span>
+          <div class="card menu-card">
+            <div class="menu-card__thumb">
+              <img id="pvImage" src="" alt="" />
+              <div class="menu-card__soldout" id="pvSold" hidden>품절</div>
+            </div>
+            <div class="menu-card__body">
+              <span class="menu-card__cat" id="pvCat">카테고리</span>
+              <h3 class="menu-card__name" id="pvName">메뉴 이름</h3>
+              <span class="menu-card__price" id="pvPrice">0원</span>
+            </div>
+          </div>
+        </aside>
+      </div>
+
+      <div class="menu-form__actions">
+        <a href="list.html" class="btn btn--outline">취소</a>
+        <button type="submit" class="btn btn--primary">메뉴 등록</button>
+      </div>
+    </form>
+  </main>
+
+  <script src="../../js/data.js"></script>
+  <script src="../../js/utils.js"></script>
+  <script src="create.js"></script>
+</body>
+</html>
