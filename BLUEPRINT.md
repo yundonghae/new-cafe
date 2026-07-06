@@ -102,24 +102,24 @@ cafe-app/
 
 ### 1단계: 공유 자원
 
-- [ ] `css/variables.css` — 전역 CSS 변수, 리셋
-- [ ] `js/data.js` — 메뉴/카테고리 데이터
-- [ ] `js/utils.js` — 공통 유틸리티 (카트, 포맷 등)
+- [x] `css/variables.css` — 전역 CSS 변수, 리셋
+- [x] `js/data.js` — 메뉴/카테고리 데이터
+- [x] `js/utils.js` — 공통 유틸리티 (카트, 포맷 등)
 
 ### 2단계: 관리자 - 메뉴 관리 시스템
 
-- [ ] `admin/menus/list.html` — 메뉴 목록
-- [ ] `admin/menus/list.css`
-- [ ] `admin/menus/list.js`
-- [ ] `admin/menus/detail.html` — 메뉴 상세
-- [ ] `admin/menus/detail.css`
-- [ ] `admin/menus/detail.js`
-- [ ] `admin/menus/create.html` — 메뉴 추가
-- [ ] `admin/menus/create.css`
-- [ ] `admin/menus/create.js`
-- [ ] `admin/menus/edit.html` — 메뉴 수정
-- [ ] `admin/menus/edit.css`
-- [ ] `admin/menus/edit.js`
+- [x] `admin/menus/list.html` — 메뉴 목록
+- [x] `admin/menus/list.css`
+- [x] `admin/menus/list.js`
+- [x] `admin/menus/detail.html` — 메뉴 상세
+- [x] `admin/menus/detail.css`
+- [x] `admin/menus/detail.js`
+- [x] `admin/menus/create.html` — 메뉴 추가
+- [x] `admin/menus/create.css`
+- [x] `admin/menus/create.js`
+- [x] `admin/menus/edit.html` — 메뉴 수정
+- [x] `admin/menus/edit.css`
+- [x] `admin/menus/edit.js`
 
 ### 3단계: 고객 - 메뉴 조회 시스템
 

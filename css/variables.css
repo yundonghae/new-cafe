@@ -91,7 +91,6 @@
 }
 
 html {
-  -webkit-text-size-adjust: 100%;
   scroll-behavior: smooth;
 }
 
@@ -166,8 +165,8 @@ h1, h2, h3, h4, h5, h6 {
 
 .glass {
   background: var(--glass-bg);
-  backdrop-filter: blur(var(--glass-blur));
   -webkit-backdrop-filter: blur(var(--glass-blur));
+  backdrop-filter: blur(var(--glass-blur));
   border: 1px solid var(--glass-border);
   box-shadow: var(--shadow-md);
 }
