@@ -1,0 +1,62 @@
+.menu-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: var(--space-lg) var(--space-xl);
+  border-bottom: 1px solid var(--color-border);
+}
+
+.btn {
+  display: inline-block;
+  padding: var(--space-sm) var(--space-md);
+  border-radius: var(--radius-sm);
+  font-weight: 600;
+  color: var(--color-primary-dark);
+}
+
+.category-tabs {
+  display: flex;
+  gap: var(--space-sm);
+  padding: var(--space-md) var(--space-xl) 0;
+}
+
+.category-tabs button {
+  padding: var(--space-sm) var(--space-md);
+  border-radius: 999px;
+  border: 1px solid var(--color-border);
+  color: var(--color-text-muted);
+}
+
+.category-tabs button.active {
+  background: var(--color-primary);
+  color: #fff;
+  border-color: var(--color-primary);
+}
+
+.menu-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+  gap: var(--space-md);
+  max-width: 960px;
+  margin: var(--space-lg) auto;
+  padding: 0 var(--space-lg);
+}
+
+.menu-card {
+  padding: var(--space-md);
+  cursor: pointer;
+}
+
+.menu-card.soldout {
+  opacity: 0.5;
+  pointer-events: none;
+}
+
+.menu-card h3 {
+  margin-bottom: var(--space-xs);
+}
+
+.menu-card .price {
+  color: var(--color-primary-dark);
+  font-weight: 600;
+}
