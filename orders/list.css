@@ -1,0 +1,88 @@
+.orders-header {
+  display: grid;
+  grid-template-columns: 1fr auto 1fr;
+  align-items: center;
+  gap: var(--space-sm);
+  padding: var(--space-md) var(--space-lg);
+  border-bottom: 1px solid var(--color-border);
+  position: sticky;
+  top: 0;
+  background: var(--color-bg);
+  z-index: var(--z-header);
+}
+.orders-header h1 { font-size: var(--fs-lg); white-space: nowrap; }
+
+.orders-main {
+  max-width: 720px;
+  margin: var(--space-lg) auto var(--space-2xl);
+  padding: 0 var(--space-lg);
+}
+
+.orders-list {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-md);
+}
+
+/* ===== 주문 카드 ===== */
+.order-card { padding: var(--space-lg); }
+.order-card:hover { transform: none; box-shadow: var(--shadow-md); }
+
+.order-card__top {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--space-sm);
+  margin-bottom: var(--space-md);
+}
+.order-card__meta { display: flex; flex-direction: column; gap: 2px; min-width: 0; }
+.order-card__no { font-weight: 800; }
+.order-card__date { font-size: var(--fs-sm); color: var(--color-text-muted); }
+
+/* 상태 뱃지 (ORDER_STATUS.color 기반) */
+.status {
+  display: inline-flex;
+  align-items: center;
+  padding: 0.25rem 0.7rem;
+  border-radius: var(--radius-full);
+  font-size: var(--fs-xs);
+  font-weight: 700;
+  white-space: nowrap;
+}
+.status--warning { background: rgba(214, 154, 60, 0.16); color: #a9741f; }
+.status--info { background: rgba(90, 125, 154, 0.16); color: #3f6076; }
+.status--success { background: rgba(91, 138, 91, 0.16); color: #3f6b3f; }
+.status--danger { background: rgba(192, 86, 63, 0.16); color: #9a3c2a; }
+
+/* 아이템 라인 */
+.order-card__items {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-xs);
+  padding: var(--space-md) 0;
+  border-top: 1px dashed var(--color-border);
+  border-bottom: 1px dashed var(--color-border);
+}
+.order-line {
+  display: flex;
+  justify-content: space-between;
+  gap: var(--space-md);
+  font-size: var(--fs-sm);
+}
+.order-line__name { color: var(--color-text); }
+.order-line__name .qty { color: var(--color-text-muted); margin-left: 4px; }
+.order-line__price { color: var(--color-text-muted); white-space: nowrap; }
+
+.order-card__foot {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-top: var(--space-md);
+}
+.order-card__foot .label { color: var(--color-text-muted); font-weight: 600; }
+.order-card__total { font-size: var(--fs-lg); font-weight: 800; color: var(--color-coffee); }
+
+@media (max-width: 480px) {
+  .orders-header { padding: var(--space-md); }
+  .order-card { padding: var(--space-md); }
+}
