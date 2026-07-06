@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>장바구니 · 카페</title>
+  <link rel="stylesheet" href="../css/variables.css" />
+  <link rel="stylesheet" href="list.css" />
+</head>
+<body>
+  <header class="basket-header">
+    <a class="btn btn--ghost btn--sm" href="../menus/list.html">← 메뉴</a>
+    <h1>🛒 장바구니</h1>
+    <button class="btn btn--ghost btn--sm" id="clearBtn" hidden>비우기</button>
+  </header>
+
+  <main class="basket-main" id="basketRoot"></main>
+
+  <script src="../js/data.js"></script>
+  <script src="../js/utils.js"></script>
+  <script src="list.js"></script>
+</body>
+</html>
