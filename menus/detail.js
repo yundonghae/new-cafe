@@ -1,8 +1,11 @@
+/* ===== 고객 메뉴 상세 ===== */
+const { getMenuById } = window.CafeData;
+const { formatPrice, escapeHtml, getParam, addToCart, showToast } = window.CafeUtils;
+
 let quantity = 1;
 
 function renderMenuDetail() {
-  const params = new URLSearchParams(location.search);
-  const menu = getMenuById(params.get("id"));
+  const menu = getMenuById(getParam("id"));
   const el = document.getElementById("menu-detail");
 
   if (!menu) {
@@ -11,9 +14,9 @@ function renderMenuDetail() {
   }
 
   el.innerHTML = `
-    <h2>${menu.name}</h2>
+    <h2>${escapeHtml(menu.name)}</h2>
     <p class="price">${formatPrice(menu.price)}</p>
-    <p>${menu.description}</p>
+    <p>${escapeHtml(menu.description || "")}</p>
     <div class="quantity">
       <button type="button" id="qty-minus">-</button>
       <span id="qty-value">${quantity}</span>
@@ -23,6 +26,8 @@ function renderMenuDetail() {
       ${menu.soldOut ? "품절" : "장바구니 담기"}
     </button>
   `;
+
+  if (menu.soldOut) return;
 
   document.getElementById("qty-minus").addEventListener("click", () => {
     quantity = Math.max(1, quantity - 1);
@@ -34,7 +39,7 @@ function renderMenuDetail() {
   });
   document.getElementById("add-btn").addEventListener("click", () => {
     addToCart(menu.id, quantity);
-    alert("장바구니에 담았습니다.");
+    showToast(`${menu.name} ${quantity}개를 장바구니에 담았어요.`, "success");
   });
 }
 
