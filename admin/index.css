@@ -1,0 +1,67 @@
+/* ===== 관리자 공통 크롬 ===== */
+.admin-header {
+  position: sticky; top: 0; z-index: var(--z-header);
+  height: var(--header-height); display: flex; align-items: center;
+  border-bottom: 1px solid var(--color-border); border-radius: 0;
+}
+.admin-header__inner {
+  display: flex; align-items: center; justify-content: space-between; gap: var(--space-md);
+}
+.admin-header__brand { display: flex; align-items: center; gap: var(--space-lg); }
+.admin-header__logo { font-weight: 800; font-size: var(--fs-lg); color: var(--color-espresso); }
+.admin-nav { display: flex; gap: var(--space-xs); }
+.admin-nav a {
+  padding: 0.4rem 0.85rem; border-radius: var(--radius-full);
+  font-size: var(--fs-sm); font-weight: 600; color: var(--color-text-muted);
+  transition: background var(--transition), color var(--transition);
+}
+.admin-nav a:hover { background: var(--color-cream); color: var(--color-text); }
+.admin-nav a.is-active { background: var(--color-coffee); color: #fff; }
+.admin-main { padding-block: var(--space-xl); }
+
+.page-head__title { font-size: var(--fs-2xl); margin-bottom: var(--space-lg); }
+.section-title { font-size: var(--fs-lg); }
+.page-head {
+  display: flex; align-items: center; justify-content: space-between;
+  margin-bottom: var(--space-md);
+}
+
+/* ===== 통계 카드 ===== */
+.stat-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: var(--space-md);
+}
+.stat-card {
+  display: flex;
+  align-items: center;
+  gap: var(--space-md);
+  padding: var(--space-lg);
+}
+.stat-card__emoji { font-size: var(--fs-2xl); }
+.stat-card__label { font-size: var(--fs-sm); color: var(--color-text-muted); }
+.stat-card__value { font-size: var(--fs-xl); font-weight: 800; }
+
+/* ===== 최근 주문 ===== */
+.recent-orders { display: flex; flex-direction: column; gap: var(--space-sm); }
+.order-row {
+  display: grid;
+  grid-template-columns: 1fr auto auto auto;
+  align-items: center;
+  gap: var(--space-md);
+  padding: var(--space-md) var(--space-lg);
+}
+.order-row__id { font-weight: 700; }
+.order-row__time { color: var(--color-text-muted); font-size: var(--fs-sm); }
+.order-row__total { font-weight: 700; color: var(--color-coffee); }
+
+.badge--warning { background: var(--color-warning); color: #fff; }
+.badge--info { background: var(--color-info); color: #fff; }
+.badge--success { background: var(--color-success); color: #fff; }
+.badge--danger { background: var(--color-danger); color: #fff; }
+
+@media (max-width: 640px) {
+  .admin-nav a { padding: 0.4rem 0.6rem; }
+  .order-row { grid-template-columns: 1fr auto; row-gap: var(--space-xs); }
+  .order-row__time { grid-column: 1 / -1; }
+}
