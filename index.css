@@ -77,6 +77,14 @@
   gap: var(--space-md);
 }
 .menu-card { padding: var(--space-md); cursor: pointer; }
+.menu-card__thumb {
+  width: 100%;
+  aspect-ratio: 4 / 3;
+  object-fit: cover;
+  border-radius: var(--radius-md);
+  margin-bottom: var(--space-sm);
+  background: var(--color-cream);
+}
 .menu-card.soldout { opacity: 0.5; pointer-events: none; }
 .menu-card h3 { margin-bottom: var(--space-xs); font-size: var(--fs-md); }
 .menu-card .price { color: var(--color-coffee); font-weight: 600; }
