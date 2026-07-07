@@ -8,10 +8,17 @@
   <link rel="stylesheet" href="list.css" />
 </head>
 <body>
-  <header class="basket-header">
-    <a class="btn btn--ghost btn--sm" href="../menus/list.html">← 메뉴</a>
-    <h1>🛒 장바구니</h1>
-    <button class="btn btn--ghost btn--sm" id="clearBtn" hidden>비우기</button>
+  <header class="site-header glass">
+    <div class="container site-header__inner">
+      <a href="../index.html" class="site-header__logo">☕ 카페</a>
+      <nav class="site-nav">
+        <a href="../index.html">홈</a>
+        <a href="../menus/list.html">메뉴</a>
+        <a href="../my/index.html">마이페이지</a>
+        <a href="list.html" class="site-nav__cart is-active">🛒 장바구니</a>
+        <button class="btn btn--ghost btn--sm" id="clearBtn" hidden>비우기</button>
+      </nav>
+    </div>
   </header>
 
   <main class="basket-main" id="basketRoot"></main>
