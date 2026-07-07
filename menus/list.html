@@ -8,9 +8,19 @@
 <link rel="stylesheet" href="list.css">
 </head>
 <body>
-  <header class="menu-header">
-    <h1>☕ 메뉴</h1>
-    <a class="btn" href="../basket/list.html">🛒 장바구니</a>
+  <header class="site-header glass">
+    <div class="container site-header__inner">
+      <a href="../index.html" class="site-header__logo">☕ 카페</a>
+      <nav class="site-nav">
+        <a href="../index.html">홈</a>
+        <a href="list.html" class="is-active">메뉴</a>
+        <a href="../my/index.html">마이페이지</a>
+        <a href="../basket/list.html" class="site-nav__cart">
+          🛒 장바구니
+          <span class="badge" data-cart-badge hidden>0</span>
+        </a>
+      </nav>
+    </div>
   </header>
 
   <nav class="category-tabs" id="category-tabs"></nav>
