@@ -1,0 +1,177 @@
+/* ===== 고객 마이페이지 ===== */
+.my-header {
+  display: grid;
+  grid-template-columns: 1fr auto 1fr;
+  align-items: center;
+  gap: var(--space-sm);
+  padding: var(--space-md) var(--space-lg);
+  border-bottom: 1px solid var(--color-border);
+  position: sticky;
+  top: 0;
+  background: var(--color-bg);
+  z-index: var(--z-header);
+}
+.my-header h1 { font-size: var(--fs-lg); white-space: nowrap; }
+.my-header a:last-child { justify-self: end; }
+
+.my-main {
+  max-width: 640px;
+  margin: var(--space-lg) auto var(--space-2xl);
+  padding: 0 var(--space-lg);
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-lg);
+}
+
+/* ===== 프로필 ===== */
+.profile {
+  display: flex;
+  align-items: center;
+  gap: var(--space-md);
+  padding: var(--space-lg);
+}
+.profile:hover { transform: none; box-shadow: var(--shadow-md); }
+.profile__avatar {
+  width: 56px;
+  height: 56px;
+  display: grid;
+  place-items: center;
+  font-size: 1.75rem;
+  border-radius: var(--radius-full);
+  background: var(--color-cream);
+}
+.profile__hello { font-size: var(--fs-sm); color: var(--color-text-muted); }
+.profile__name { font-size: var(--fs-xl); }
+
+/* ===== 리워드 타일 ===== */
+.reward {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: var(--space-md);
+}
+.reward__tile {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-xs);
+  padding: var(--space-lg);
+}
+.reward__tile:hover { transform: none; box-shadow: var(--shadow-md); }
+.reward__label { font-size: var(--fs-sm); color: var(--color-text-muted); }
+.reward__value {
+  font-size: var(--fs-2xl);
+  font-weight: 800;
+  color: var(--color-coffee);
+}
+.reward__value em {
+  font-size: var(--fs-md);
+  font-weight: 600;
+  font-style: normal;
+  color: var(--color-text-muted);
+  margin-left: 2px;
+}
+
+/* ===== 스탬프 ===== */
+.stamp-card { padding: var(--space-lg); }
+.stamp-card:hover { transform: none; box-shadow: var(--shadow-sm); }
+.stamp-card__head {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: var(--space-sm);
+  flex-wrap: wrap;
+  margin-bottom: var(--space-md);
+}
+.stamp-card__title { font-weight: 800; }
+.stamp-card__hint { font-size: var(--fs-sm); color: var(--color-accent); font-weight: 600; }
+.stamp-grid {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  gap: var(--space-sm);
+}
+.stamp {
+  aspect-ratio: 1;
+  display: grid;
+  place-items: center;
+  font-size: 1.25rem;
+  border-radius: var(--radius-full);
+  border: 1.5px dashed var(--color-border);
+  background: var(--color-milk);
+}
+.stamp--filled {
+  border-style: solid;
+  border-color: var(--color-caramel);
+  background: var(--color-cream);
+}
+
+/* ===== 통계 ===== */
+.stats {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: var(--space-md);
+}
+.stat {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: var(--space-xs);
+  padding: var(--space-lg);
+  text-align: center;
+}
+.stat:hover { transform: none; box-shadow: var(--shadow-md); }
+.stat__value { font-size: var(--fs-lg); font-weight: 800; color: var(--color-coffee); }
+.stat__label { font-size: var(--fs-sm); color: var(--color-text-muted); }
+
+/* ===== 최근 주문 ===== */
+.recent__head {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  margin-bottom: var(--space-md);
+}
+.recent__head h3 { font-size: var(--fs-lg); }
+.recent__more { font-size: var(--fs-sm); color: var(--color-accent); font-weight: 600; }
+.recent__list { display: flex; flex-direction: column; gap: var(--space-sm); }
+.recent-item {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--space-md);
+  padding: var(--space-md) var(--space-lg);
+}
+.recent-item__info { display: flex; flex-direction: column; gap: 2px; min-width: 0; }
+.recent-item__summary { font-weight: 700; }
+.recent-item__date { font-size: var(--fs-sm); color: var(--color-text-muted); }
+.recent-item__right {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  gap: var(--space-xs);
+}
+.recent-item__total { font-weight: 800; color: var(--color-coffee); white-space: nowrap; }
+
+/* 상태 뱃지 (ORDER_STATUS.color 기반) */
+.status {
+  display: inline-flex;
+  align-items: center;
+  padding: 0.25rem 0.7rem;
+  border-radius: var(--radius-full);
+  font-size: var(--fs-xs);
+  font-weight: 700;
+  white-space: nowrap;
+}
+.status--warning { background: rgba(214, 154, 60, 0.16); color: #a9741f; }
+.status--info { background: rgba(90, 125, 154, 0.16); color: #3f6076; }
+.status--success { background: rgba(91, 138, 91, 0.16); color: #3f6b3f; }
+.status--danger { background: rgba(192, 86, 63, 0.16); color: #9a3c2a; }
+
+/* ===== 하단 내비 ===== */
+.my-nav {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: var(--space-sm);
+}
+
+@media (max-width: 480px) {
+  .my-header { padding: var(--space-md); }
+  .my-nav { grid-template-columns: 1fr; }
+}
