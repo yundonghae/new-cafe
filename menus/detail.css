@@ -8,7 +8,11 @@
   padding: var(--space-sm) var(--space-md);
   border-radius: var(--radius-sm);
   font-weight: 600;
+<<<<<<< HEAD
   color: var(--color-coffee);
+=======
+  color: var(--color-primary);
+>>>>>>> origin/10-메인페이지-꾸미기
 }
 
 .detail-page {
@@ -21,6 +25,7 @@
   padding: var(--space-lg);
 }
 
+<<<<<<< HEAD
 .detail-card .detail-thumb {
   display: block;
   width: 100%;
@@ -33,6 +38,19 @@
 
 .detail-card .price {
   color: var(--color-coffee);
+=======
+.detail-card__thumb {
+  width: 100%;
+  aspect-ratio: 4 / 3;
+  object-fit: cover;
+  border-radius: var(--radius-md);
+  margin-bottom: var(--space-md);
+  background: var(--color-cream);
+}
+
+.detail-card .price {
+  color: var(--color-primary);
+>>>>>>> origin/10-메인페이지-꾸미기
   font-weight: 600;
   margin: var(--space-sm) 0;
 }
