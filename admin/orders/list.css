@@ -1,0 +1,58 @@
+/* ===== 관리자 공통 크롬 ===== */
+.admin-header {
+  position: sticky; top: 0; z-index: var(--z-header);
+  height: var(--header-height); display: flex; align-items: center;
+  border-bottom: 1px solid var(--color-border); border-radius: 0;
+}
+.admin-header__inner {
+  display: flex; align-items: center; justify-content: space-between; gap: var(--space-md);
+}
+.admin-header__brand { display: flex; align-items: center; gap: var(--space-lg); }
+.admin-header__logo { font-weight: 800; font-size: var(--fs-lg); color: var(--color-espresso); }
+.admin-nav { display: flex; gap: var(--space-xs); }
+.admin-nav a {
+  padding: 0.4rem 0.85rem; border-radius: var(--radius-full);
+  font-size: var(--fs-sm); font-weight: 600; color: var(--color-text-muted);
+  transition: background var(--transition), color var(--transition);
+}
+.admin-nav a:hover { background: var(--color-cream); color: var(--color-text); }
+.admin-nav a.is-active { background: var(--color-coffee); color: #fff; }
+.admin-main { padding-block: var(--space-xl); }
+
+.page-head {
+  display: flex; align-items: flex-end; justify-content: space-between;
+  gap: var(--space-md); margin-bottom: var(--space-lg);
+}
+.page-head__title { font-size: var(--fs-2xl); }
+
+.chips { display: flex; gap: var(--space-xs); flex-wrap: wrap; margin-bottom: var(--space-lg); }
+.chip {
+  padding: 0.4rem 0.9rem; border-radius: var(--radius-full);
+  border: 1.5px solid var(--color-border); background: var(--color-surface);
+  font-size: var(--fs-sm); font-weight: 600; color: var(--color-text-muted);
+  transition: all var(--transition);
+}
+.chip:hover { border-color: var(--color-accent); color: var(--color-accent); }
+.chip.is-active { background: var(--color-coffee); border-color: var(--color-coffee); color: #fff; }
+
+/* ===== 주문 목록 ===== */
+.order-list { display: flex; flex-direction: column; gap: var(--space-sm); }
+.order-row {
+  display: grid;
+  grid-template-columns: 1fr auto auto;
+  align-items: center;
+  gap: var(--space-md);
+  padding: var(--space-md) var(--space-lg);
+}
+.order-row__main { display: flex; flex-direction: column; gap: 2px; min-width: 0; }
+.order-row__id { font-weight: 700; }
+.order-row__summary { color: var(--color-text-muted); font-size: var(--fs-sm); }
+.order-row__time { color: var(--color-text-muted); font-size: var(--fs-xs); }
+.order-row__total { font-weight: 700; color: var(--color-coffee); white-space: nowrap; }
+.order-row__status { max-width: 130px; }
+
+@media (max-width: 640px) {
+  .admin-nav a { padding: 0.4rem 0.6rem; }
+  .order-row { grid-template-columns: 1fr; }
+  .order-row__status { max-width: none; }
+}
