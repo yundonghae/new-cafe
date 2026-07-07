@@ -31,6 +31,7 @@ function renderMenuGrid() {
     .map(
       (menu) => `
     <div class="menu-card glass ${menu.soldOut ? "soldout" : ""}" onclick="location.href='detail.html?id=${menu.id}'">
+      <img class="menu-thumb" src="${escapeHtml(menu.image || "")}" alt="${escapeHtml(menu.name)}" loading="lazy">
       <h3>${escapeHtml(menu.name)}</h3>
       <p class="price">${formatPrice(menu.price)}</p>
       ${menu.soldOut ? "<p>품절</p>" : ""}

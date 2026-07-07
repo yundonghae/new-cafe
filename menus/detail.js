@@ -14,6 +14,7 @@ function renderMenuDetail() {
   }
 
   el.innerHTML = `
+    <img class="detail-thumb" src="${escapeHtml(menu.image || "")}" alt="${escapeHtml(menu.name)}">
     <h2>${escapeHtml(menu.name)}</h2>
     <p class="price">${formatPrice(menu.price)}</p>
     <p>${escapeHtml(menu.description || "")}</p>
